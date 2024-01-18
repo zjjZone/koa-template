@@ -4,11 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "cross-env NODE_ENV=development rollup -c -w",
-		"serve": "nodemon ./dist/bundle.js",
+		"dev": "cross-env NODE_ENV=development rollup -c -w",
+		"serve": "node ./dist/bundle.js",
 		"build:dev": "cross-env NODE_ENV=development rollup -c",
-		"build:prod": "cross-env NODE_ENV=production rollup -c",
-		"dev": "npm run build:dev && npm-run-all -p serve start"
+		"build:prod": "cross-env NODE_ENV=production rollup -c"
 	},
 	"keywords": [],
 	"author": "",
@@ -23,12 +22,14 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.22.9",
+		"@babel/eslint-parser": "^7.23.3",
 		"@babel/plugin-proposal-class-properties": "^7.18.6",
 		"@babel/plugin-proposal-decorators": "^7.22.10",
 		"@babel/preset-env": "^7.22.9",
 		"@rollup/plugin-commonjs": "^25.0.7",
 		"@rollup/plugin-json": "^6.1.0",
 		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-run": "^3.0.2",
 		"core-js": "^3.32.1",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.55.0",

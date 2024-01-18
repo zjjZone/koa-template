@@ -5,8 +5,9 @@ module.exports = {
 	},
 	extends: [
 		'eslint:recommended',
-		'prettier' // eslint-config-prettier，eslint继承prettier的配置，解决冲突
+		'plugin:prettier/recommended' // eslint-config-prettier，eslint继承prettier的配置，解决冲突
 	],
+	parser: '@babel/eslint-parser', // 使用 @babel/eslint-parser 解析器
 	parserOptions: {
 		ecmaVersion: 2021,
 		sourceType: 'module'

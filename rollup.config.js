@@ -4,6 +4,7 @@ const dotenvPlugin = require('rollup-plugin-dotenv').default
 const resolve = require('@rollup/plugin-node-resolve')
 const commonjs = require('@rollup/plugin-commonjs')
 const json = require('@rollup/plugin-json')
+const run = require('@rollup/plugin-run')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -43,6 +44,13 @@ function getPlugins(isProd) {
 		plugins.push(resolve())
 		plugins.push(commonjs())
 		plugins.push(json())
+	} else {
+		plugins.push(
+			run({
+				wait: true,
+				cmd: 'npm run serve' // 开发环境下，每次构建后运行一下，实现热更新
+			})
+		)
 	}
 
 	return plugins
